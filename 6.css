@@ -1,0 +1,158 @@
+/* Genel Ayarlar */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('arka.jpg'); /* Arka plan resmi */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: 600px;
+  height: 98%;
+  background: rgba(255, 255, 255, 0); /* Saydam yapıldı */
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  position: relative;
+}
+
+/* Butonlara efekt */
+button {
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Sohbet Mesajları */
+.chat-messages {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  /* Arka plan rengi kaldırıldı */
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 130px);
+  background: transparent; /* Arka planı şeffaf yapıyoruz */
+}
+
+/* Mesaj Stilleri */
+.message {
+  max-width: 70%;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 10px;
+  font-size: 14px;
+  line-height: 1.4;
+  word-wrap: break-word;
+  position: relative;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeIn 0.3s ease forwards;
+}
+
+/* Gelen mesaj */
+.message.received {
+  align-self: flex-start;
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Gönderilen mesaj */
+.message.sent {
+  align-self: flex-end;
+  background-color: #dcf8c6;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Mesaj Animasyonu */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mesajlara efektli parıltı */
+.message.sent::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 6px;
+  height: 6px;
+  background-color: #34d399;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #34d399;
+  animation: blink 1.5s infinite alternate;
+}
+
+@keyframes blink {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.3;
+  }
+}
+
+/* Mesaj Yazma Alanı */
+.chat-input {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: #ffffff;
+  border-top: 1px solid #ddd;
+}
+
+/* Mesaj giriş kutusuna efekt */
+.chat-input input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.chat-input input:focus {
+  border-color: #075e54;
+  box-shadow: 0 0 8px rgba(7, 94, 84, 0.5);
+}
+
+/* Gönder Butonu */
+.chat-input button {
+  padding: 10px 15px;
+  margin-left: 10px;
+  border: none;
+  background-color: #075e54;
+  color: #ffffff;
+  font-size: 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.chat-input button:hover {
+  background-color: #056448;
+  transform: scale(1.1);
+}

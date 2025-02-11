@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="tr"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Grup Sohbet</title> 
+    <link rel="stylesheet" href="6.css"> 
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script> 
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/1.0.12/push.min.js"></script>
+    <!-- JavaScript Dosyanı En Son Yükle -->
+    <script src="6.js" defer></script> 
+</head> 
+<body> 
+    <!-- Giriş Ekranı -->
+    <div class="container" id="girisEkrani"> 
+        <h1>SOFT V CHAT</h1> 
+        <input type="text" id="kadi" placeholder="Kullanıcı adınızı girin"> 
+        <button onclick="uyeKaydet()">Giriş Yap</button> 
+    </div> 
+
+    <!-- Sohbet Ekranı -->
+    <div class="container" id="chatEkrani" style="display: none;"> 
+        <div class="chat-header"> 
+            <h2>⚕️SOFT V CHAT⚕️</h2> 
+        </div> 
+
+        <!-- Mesajları Gösterme Alanı -->
+        <div id="mesajAlani" class="chat-messages"></div> 
+
+        <!-- Mesaj Yazma Alanı -->
+        <div class="chat-input">
+            <input type="text" id="mesaj" placeholder="Mesaj yaz...">
+            <button onclick="mesajGonder()">📤</button>
+            <input type="file" id="dosyaInput" style="display: none;" onchange="dosyaSecildi(event)">
+            <button onclick="document.getElementById('dosyaInput').click()">📎</button>
+        </div>
+    </div>  
+</body>
+</html>
